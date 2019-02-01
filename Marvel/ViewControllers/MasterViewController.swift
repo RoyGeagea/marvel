@@ -35,8 +35,16 @@ class MasterViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = data[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.character = (object as! CharacterViewModel).character
-                controller.title = "\(controller.character.id!)"
+                let character = (object as! CharacterViewModel).character
+                controller.character = character
+                controller.title = "\(character.id!)"
+                
+                var dataToPass = [TableViewCellBuilder]()
+                if let comics = character.comics, let items = comics.items, items.count > 0 {
+                    dataToPass.append(ComicsViewModel(comics: items))
+                }
+                controller.data = dataToPass
+                
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }

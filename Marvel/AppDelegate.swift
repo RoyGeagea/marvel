@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UINavigationBar.appearance().barTintColor = UIColor.black
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        
+        UIApplication.shared.statusBarStyle = .lightContent
+
         return true
     }
 

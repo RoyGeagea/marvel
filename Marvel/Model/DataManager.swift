@@ -31,7 +31,7 @@ class DataManager: NSObject {
     }
     
     func getUserData(viewController: UIViewController, firstTime: Bool, completionHandler:@escaping (_ success: Bool, _ mainAppData: [CharacterViewModel]?, _ error: String?) -> Void) {
-        Networking.GET(requestUrl: "characters", parameters: self.queryParameters(), success: { (data) in
+        Networking.GET(requestUrl: "characters", parameters: ["apikey": "149efec8c928623a5d50a756243a8bd1", "hash": "744f26d534ba2ee85129e3078515a1cc", "ts": "1548965420", "orderBy": "name", "limit": "15", "offset": "0"], success: { (data) in
             do {
                 let jsonDecoder = JSONDecoder()
                 let responseModel = try jsonDecoder.decode(MainResponse.self, from: data as! Data)
@@ -52,11 +52,30 @@ class DataManager: NSObject {
         }
     }
     
-    func queryParameters() -> [String: Any] {
-        let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(ts + privateKey + apiKey)
-        
-        return ["apikey": "149efec8c928623a5d50a756243a8bd1", "hash": "744f26d534ba2ee85129e3078515a1cc", "ts": "1548965420", "orderBy": "name", "limit": "15", "offset": "0"]
+    func getComicsForCharacter(view: UITableViewCell, characterID: String, completionHandler:@escaping (_ success: Bool, _ details: [DetailObject]?, _ error: String?) -> Void) {
+        Networking.GET(requestUrl: "characters/" + characterID + "/comics", parameters: ["apikey": "149efec8c928623a5d50a756243a8bd1", "hash": "744f26d534ba2ee85129e3078515a1cc", "ts": "1548965420"], success: { (data) in
+            do {
+                let resultString = String(data: data as! Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!
+                let mainDict = Networking.convertToDictionary(text: resultString)
+                let data = mainDict!["data"] as! NSDictionary
+                let result = data["results"] as! [NSDictionary]
+                var details = [DetailObject]()
+                if result.count > 0 {
+                    for object in result {
+                        let id = "\(object["id"]!)"
+                        let title = "\(object["title"]!)"
+                        let imageURL = "\((object["thumbnail"] as! NSDictionary)["path"] as! String)" + ".\((object["thumbnail"] as! NSDictionary)["extension"] as! String)"
+                        details.append(DetailObject(ID: id, title: title, imageURL: imageURL))
+                    }
+                }
+                completionHandler(true, details, nil)
+            }
+            catch {
+                completionHandler(false, nil, NSLocalizedString("An error occurred, please try again later.", comment: ""))
+            }
+        }) { (errorMessage) in
+            completionHandler(false, nil, errorMessage)
+        }
     }
     
     func MD5(_ string: String) -> String? {

@@ -29,7 +29,6 @@ class Networking: NSObject {
             }
             urlComponents.queryItems = items
             
-            
             var request = URLRequest(url: urlComponents.url!)
             request.httpMethod = HTTPMethod.get.rawValue
             

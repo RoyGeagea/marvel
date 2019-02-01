@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52EDE1102203E88F0076D5CC /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDE10F2203E88F0076D5CC /* DetailTableViewCell.swift */; };
+		52EDE1122203EAC30076D5CC /* ComicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDE1112203EAC30076D5CC /* ComicsViewModel.swift */; };
+		52EDE1142203F87E0076D5CC /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDE1132203F87E0076D5CC /* ItemCollectionViewCell.swift */; };
+		52EDE1182203FBA60076D5CC /* DetailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EDE1172203FBA60076D5CC /* DetailObject.swift */; };
 		52F70D3C2203875700D27CD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D3B2203875600D27CD8 /* AppDelegate.swift */; };
 		52F70D3E2203875700D27CD8 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D3D2203875700D27CD8 /* MasterViewController.swift */; };
 		52F70D402203875700D27CD8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D3F2203875700D27CD8 /* DetailViewController.swift */; };
@@ -29,11 +33,16 @@
 		52F70D712203AB3800D27CD8 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D702203AB3800D27CD8 /* CharacterTableViewCell.swift */; };
 		52F70D742203AB7700D27CD8 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D732203AB7700D27CD8 /* CharacterViewModel.swift */; };
 		52F70D822203D58000D27CD8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D812203D58000D27CD8 /* Helper.swift */; };
+		52F70D842203E28200D27CD8 /* DetailOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D832203E28200D27CD8 /* DetailOperations.swift */; };
 		91C8504045183A03F7B80B91 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740C017BEBCD028BEF985025 /* Pods_Marvel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		50E19759F0E4EEBAE9816B16 /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
+		52EDE10F2203E88F0076D5CC /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		52EDE1112203EAC30076D5CC /* ComicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsViewModel.swift; sourceTree = "<group>"; };
+		52EDE1132203F87E0076D5CC /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		52EDE1172203FBA60076D5CC /* DetailObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailObject.swift; sourceTree = "<group>"; };
 		52F70D382203875600D27CD8 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F70D3B2203875600D27CD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F70D3D2203875700D27CD8 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +68,7 @@
 		52F70D732203AB7700D27CD8 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		52F70D802203BD9700D27CD8 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
 		52F70D812203D58000D27CD8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		52F70D832203E28200D27CD8 /* DetailOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOperations.swift; sourceTree = "<group>"; };
 		6A1455596443F30BF21EB117 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		740C017BEBCD028BEF985025 /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +136,7 @@
 			children = (
 				52F70D692203A8A800D27CD8 /* Objects */,
 				52F70D6B2203A8C200D27CD8 /* DataManager.swift */,
+				52F70D832203E28200D27CD8 /* DetailOperations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 				52F70D5922039AA900D27CD8 /* Stories.swift */,
 				52F70D5A22039AA900D27CD8 /* Thumbnail.swift */,
 				52F70D5B22039AA900D27CD8 /* Urls.swift */,
+				52EDE1172203FBA60076D5CC /* DetailObject.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -168,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				52F70D702203AB3800D27CD8 /* CharacterTableViewCell.swift */,
+				52EDE10F2203E88F0076D5CC /* DetailTableViewCell.swift */,
+				52EDE1132203F87E0076D5CC /* ItemCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				52F70D732203AB7700D27CD8 /* CharacterViewModel.swift */,
+				52EDE1112203EAC30076D5CC /* ComicsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -351,14 +366,19 @@
 				52F70D6C2203A8C200D27CD8 /* DataManager.swift in Sources */,
 				52F70D5D22039AAA00D27CD8 /* Events.swift in Sources */,
 				52F70D5F22039AAA00D27CD8 /* Results.swift in Sources */,
+				52EDE1142203F87E0076D5CC /* ItemCollectionViewCell.swift in Sources */,
 				52F70D6122039AAA00D27CD8 /* MainResponse.swift in Sources */,
 				52F70D50220396A500D27CD8 /* Networking.swift in Sources */,
+				52EDE1182203FBA60076D5CC /* DetailObject.swift in Sources */,
 				52F70D6522039AAA00D27CD8 /* Urls.swift in Sources */,
 				52F70D6222039AAA00D27CD8 /* Comics.swift in Sources */,
 				52F70D822203D58000D27CD8 /* Helper.swift in Sources */,
+				52EDE1102203E88F0076D5CC /* DetailTableViewCell.swift in Sources */,
 				52F70D6422039AAA00D27CD8 /* Thumbnail.swift in Sources */,
 				52F70D6022039AAA00D27CD8 /* Items.swift in Sources */,
 				52F70D742203AB7700D27CD8 /* CharacterViewModel.swift in Sources */,
+				52F70D842203E28200D27CD8 /* DetailOperations.swift in Sources */,
+				52EDE1122203EAC30076D5CC /* ComicsViewModel.swift in Sources */,
 				52F70D402203875700D27CD8 /* DetailViewController.swift in Sources */,
 				52F70D3E2203875700D27CD8 /* MasterViewController.swift in Sources */,
 				52F70D712203AB3800D27CD8 /* CharacterTableViewCell.swift in Sources */,
