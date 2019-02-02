@@ -41,16 +41,16 @@ class MasterViewController: UITableViewController {
                 
                 var dataToPass = [TableViewCellBuilder]()
                 if let comics = character.comics, let items = comics.items, items.count > 0 {
-                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.comics.rawValue))
+                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.comics.rawValue, characterID: "\(character.id!)"))
                 }
                 if let events = character.events, let items = events.items, items.count > 0 {
-                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.events.rawValue))
+                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.events.rawValue, characterID: "\(character.id!)"))
                 }
-                if let series = character.stories, let items = series.items, items.count > 0 {
-                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.series.rawValue))
+                if let series = character.series, let items = series.items, items.count > 0 {
+                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.series.rawValue, characterID: "\(character.id!)"))
                 }
                 if let stories = character.stories, let items = stories.items, items.count > 0 {
-                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.stories.rawValue))
+                    dataToPass.append(ComicsViewModel(items: items, rowName: DetailType.stories.rawValue, characterID: "\(character.id!)"))
                 }
                 controller.data = dataToPass
                 

@@ -37,17 +37,19 @@ class DetailTableViewCell: UITableViewCell {
         else {
             self.collectionView.dataSource = self
             self.collectionView.delegate = self
+            self.collectionView.reloadData()
         }
     }
     
     func getComics(type: String) {
-        DataManager.sharedInstance.getForCharacter(type: type, view: self, characterID: "1011334") { (success, detailsObjects, errorMessage) in
+        DataManager.sharedInstance.getForCharacter(type: type, view: self, characterID: self.viewModel.characterID) { (success, detailsObjects, errorMessage) in
             if success {
                 OperationQueue.main.addOperation({
                     self.viewModel.details = detailsObjects
                     self.viewModel.isDownloaded = true
                     self.collectionView.dataSource = self
                     self.collectionView.delegate = self
+                    self.collectionView.reloadData()
                 })
             }
             else {
@@ -86,12 +88,7 @@ extension DetailTableViewCell: UICollectionViewDataSource {
 extension DetailTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch self.viewModel.rowName {
-        case DetailType.comics.rawValue:
-            return CGSize(width: 117, height: 199)
-        default:
-            return CGSize(width: 117, height: 199)
-        }
+        return CGSize(width: 117, height: 199)
     }
     
 }

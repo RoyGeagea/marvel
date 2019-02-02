@@ -15,10 +15,12 @@ class ComicsViewModel: TableViewCellBuilder {
     var rowName: String
     var isDownloaded = false
     var details: [DetailObject]?
+    var characterID: String
     
-    init(items: [Items], rowName: String) {
+    init(items: [Items], rowName: String, characterID: String) {
         self.items = items
         self.rowName = rowName
+        self.characterID = characterID
     }
     
     func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {

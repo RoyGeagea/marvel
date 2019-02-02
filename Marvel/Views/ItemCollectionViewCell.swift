@@ -18,6 +18,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
         if detail.imageURL != "" {
             Helper.setImage(imgView: self.imgView, url: URL(string: detail.imageURL)!)
         }
+        else {
+            self.imgView.image = UIImage(named: "no-image.jpg")
+        }
     }
     
 }
