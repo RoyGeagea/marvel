@@ -15,7 +15,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     func setup(detail: DetailObject) {
         self.titleLabel.text = detail.title
-        Helper.setImage(imgView: self.imgView, url: URL(string: detail.imageURL)!)
+        if detail.imageURL != "" {
+            Helper.setImage(imgView: self.imgView, url: URL(string: detail.imageURL)!)
+        }
     }
     
 }

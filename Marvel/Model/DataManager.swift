@@ -52,8 +52,8 @@ class DataManager: NSObject {
         }
     }
     
-    func getComicsForCharacter(view: UITableViewCell, characterID: String, completionHandler:@escaping (_ success: Bool, _ details: [DetailObject]?, _ error: String?) -> Void) {
-        Networking.GET(requestUrl: "characters/" + characterID + "/comics", parameters: ["apikey": "149efec8c928623a5d50a756243a8bd1", "hash": "744f26d534ba2ee85129e3078515a1cc", "ts": "1548965420"], success: { (data) in
+    func getForCharacter(type: String, view: UITableViewCell, characterID: String, completionHandler:@escaping (_ success: Bool, _ details: [DetailObject]?, _ error: String?) -> Void) {
+        Networking.GET(requestUrl: "characters/" + characterID + "/" + type, parameters: ["apikey": "149efec8c928623a5d50a756243a8bd1", "hash": "744f26d534ba2ee85129e3078515a1cc", "ts": "1548965420", "limit": "3"], success: { (data) in
             do {
                 let resultString = String(data: data as! Data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!
                 let mainDict = Networking.convertToDictionary(text: resultString)
@@ -64,7 +64,10 @@ class DataManager: NSObject {
                     for object in result {
                         let id = "\(object["id"]!)"
                         let title = "\(object["title"]!)"
-                        let imageURL = "\((object["thumbnail"] as! NSDictionary)["path"] as! String)" + ".\((object["thumbnail"] as! NSDictionary)["extension"] as! String)"
+                        var imageURL = ""
+                        if let thumb = object["thumbnail"] as? NSDictionary {
+                            imageURL = "\(thumb["path"] as! String)" + ".\(thumb["extension"] as! String)"
+                        }
                         details.append(DetailObject(ID: id, title: title, imageURL: imageURL))
                     }
                 }

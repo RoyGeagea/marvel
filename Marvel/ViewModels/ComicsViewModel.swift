@@ -9,15 +9,16 @@
 import UIKit
 
 class ComicsViewModel: TableViewCellBuilder {
-    
+
     var items: [Items]
     var rowHeight: CGFloat = 248
-    var rowName: String = DetailType.comics.rawValue
+    var rowName: String
     var isDownloaded = false
     var details: [DetailObject]?
     
-    init(comics: [Items]) {
-        self.items = comics
+    init(items: [Items], rowName: String) {
+        self.items = items
+        self.rowName = rowName
     }
     
     func cellInstance(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {

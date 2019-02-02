@@ -30,23 +30,18 @@ class DetailTableViewCell: UITableViewCell {
     func setup(vm: ComicsViewModel) {
         self.viewModel = vm
         self.titleLabel.text =  vm.rowName
-        
-        switch self.viewModel.rowName {
-        case DetailType.comics.rawValue:
-            if vm.isDownloaded == false {
-                self.getComics()
-            }
-            else {
-                self.collectionView.dataSource = self
-                self.collectionView.delegate = self
-            }
-        default:
-            break
+                
+        if vm.isDownloaded == false {
+            self.getComics(type: self.viewModel.rowName.lowercased())
+        }
+        else {
+            self.collectionView.dataSource = self
+            self.collectionView.delegate = self
         }
     }
     
-    func getComics() {
-        DataManager.sharedInstance.getComicsForCharacter(view: self, characterID: "1011334") { (success, detailsObjects, errorMessage) in
+    func getComics(type: String) {
+        DataManager.sharedInstance.getForCharacter(type: type, view: self, characterID: "1011334") { (success, detailsObjects, errorMessage) in
             if success {
                 OperationQueue.main.addOperation({
                     self.viewModel.details = detailsObjects

@@ -33,7 +33,6 @@
 		52F70D712203AB3800D27CD8 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D702203AB3800D27CD8 /* CharacterTableViewCell.swift */; };
 		52F70D742203AB7700D27CD8 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D732203AB7700D27CD8 /* CharacterViewModel.swift */; };
 		52F70D822203D58000D27CD8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D812203D58000D27CD8 /* Helper.swift */; };
-		52F70D842203E28200D27CD8 /* DetailOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F70D832203E28200D27CD8 /* DetailOperations.swift */; };
 		91C8504045183A03F7B80B91 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740C017BEBCD028BEF985025 /* Pods_Marvel.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		52F70D732203AB7700D27CD8 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		52F70D802203BD9700D27CD8 /* Marvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Bridging-Header.h"; sourceTree = "<group>"; };
 		52F70D812203D58000D27CD8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		52F70D832203E28200D27CD8 /* DetailOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOperations.swift; sourceTree = "<group>"; };
 		6A1455596443F30BF21EB117 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		740C017BEBCD028BEF985025 /* Pods_Marvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,7 +134,6 @@
 			children = (
 				52F70D692203A8A800D27CD8 /* Objects */,
 				52F70D6B2203A8C200D27CD8 /* DataManager.swift */,
-				52F70D832203E28200D27CD8 /* DetailOperations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,7 +374,6 @@
 				52F70D6422039AAA00D27CD8 /* Thumbnail.swift in Sources */,
 				52F70D6022039AAA00D27CD8 /* Items.swift in Sources */,
 				52F70D742203AB7700D27CD8 /* CharacterViewModel.swift in Sources */,
-				52F70D842203E28200D27CD8 /* DetailOperations.swift in Sources */,
 				52EDE1122203EAC30076D5CC /* ComicsViewModel.swift in Sources */,
 				52F70D402203875700D27CD8 /* DetailViewController.swift in Sources */,
 				52F70D3E2203875700D27CD8 /* MasterViewController.swift in Sources */,
