@@ -35,8 +35,6 @@ class DetailTableViewCell: UITableViewCell {
             self.getComics(type: self.viewModel.rowName.lowercased())
         }
         else {
-            self.collectionView.dataSource = self
-            self.collectionView.delegate = self
             self.collectionView.reloadData()
         }
     }
