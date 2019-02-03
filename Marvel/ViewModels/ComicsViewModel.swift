@@ -14,7 +14,7 @@ class ComicsViewModel: TableViewCellBuilder {
     var rowHeight: CGFloat = 248
     var rowName: String
     var isDownloaded = false
-    var details: [DetailObject]?
+    var details = [DetailObject]()
     var characterID: String
     
     init(items: [Items], rowName: String, characterID: String) {

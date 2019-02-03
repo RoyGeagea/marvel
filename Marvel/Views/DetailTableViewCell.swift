@@ -30,11 +30,13 @@ class DetailTableViewCell: UITableViewCell {
     func setup(vm: ComicsViewModel) {
         self.viewModel = vm
         self.titleLabel.text =  vm.rowName
-                
+        
         if vm.isDownloaded == false {
             self.getComics(type: self.viewModel.rowName.lowercased())
         }
         else {
+            self.collectionView.dataSource = self
+            self.collectionView.delegate = self
             self.collectionView.reloadData()
         }
     }
@@ -43,10 +45,12 @@ class DetailTableViewCell: UITableViewCell {
         DataManager.sharedInstance.getForCharacter(type: type, view: self, characterID: self.viewModel.characterID) { (success, detailsObjects, errorMessage) in
             if success {
                 OperationQueue.main.addOperation({
-                    self.viewModel.details = detailsObjects
-                    self.viewModel.isDownloaded = true
                     self.collectionView.dataSource = self
                     self.collectionView.delegate = self
+                    if self.viewModel.rowName.lowercased() == type {
+                        self.viewModel.details = detailsObjects!
+                        self.viewModel.isDownloaded = true
+                    }
                     self.collectionView.reloadData()
                 })
             }
@@ -65,18 +69,13 @@ extension DetailTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.viewModel.items.count > 3 {
-            return 3
-        }
-        else {
-            return self.viewModel.items.count
-        }
+        return self.viewModel.details.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCollectionViewCell
         
-        cell.setup(detail: self.viewModel.details![indexPath.item])
+        cell.setup(detail: self.viewModel.details[indexPath.item])
         
         return cell
     }
